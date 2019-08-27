@@ -47,6 +47,23 @@ function fibonacci_itterative(num){
 console.log(fibonacci_itterative(6)) // = 8
 
 
+// ## fib recursive
+function fibonacci_recursive(n){
+    if (n == 1 || n == 2){
+        return 1
+    }
+    else{
+        return (fibonacci_recursive(n-2) + fibonacci_recursive(n-1))
+    }
+}
+
+
+console.log(fibonacci_recursive(6)) // = 8
+
+
+
+
+
 
 
 // 4)Array: Second-to-Last: Return the second-to-last element of an array.
@@ -88,16 +105,20 @@ function second_large(arr){
     if (arr.length<2){
         return null
     }
-    var first = arr[0], second;
+    var first = arr[0], second = 0;
     for (var i = 1; i< arr.length; i++){
-        if(arr[i]> first){
+        if(arr[i] > first){
             second = first
             first =arr[i];
         }
+        else if (arr[i] > second && arr[i] < first){
+          second = arr[i]
+        }
     }
+
     return second
 }
-console.log(second_large([42,1,4,3.14,7]))
+console.log(second_large([53,1,42, 4,3.14,7]))
 
 
 // 7)Double Trouble: Create a function that changes a given array to list each
